@@ -4,10 +4,16 @@ require('shelljs/global')
 env.NODE_ENV = 'production'
 
 var path = require('path')
+var fs = require('fs')
 var config = require('../config')
 var ora = require('ora')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')
+
+function hasNonDotFiles (dir) {
+  return fs.existsSync(dir) &&
+    fs.readdirSync(dir).some(function (file) { return file[0] !== '.' })
+}
 
 console.log(
   '  Tip:\n' +
@@ -22,8 +28,13 @@ var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirect
 var viewerPath = path.join(config.build.assetsRoot, config.build.viewerSubDirectory)
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
-cp('-R', 'static/*', assetsPath)
-cp('3DViewer/build/*', viewerPath)
+mkdir('-p', viewerPath)
+if (hasNonDotFiles('static')) {
+  cp('-R', 'static/*', assetsPath)
+}
+if (hasNonDotFiles('3DViewer/build')) {
+  cp('3DViewer/build/*', viewerPath)
+}
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()

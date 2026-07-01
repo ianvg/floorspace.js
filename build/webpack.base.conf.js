@@ -44,7 +44,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: function (file) {
+          return /node_modules/.test(file) &&
+            !/node_modules[\\/]vue-virtual-scroller[\\/]/.test(file)
+        }
       },
       {
         test: /\.json$/,
