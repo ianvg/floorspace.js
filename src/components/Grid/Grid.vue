@@ -148,13 +148,14 @@ export default {
       }
     },
     windowAndDoorDefs() {
-      return [
-        ...this.windowDefs,
-        ...this.doorDefs.map(d => ({
+      const result = [...(this.windowDefs || [])];
+      if (this.doorDefs) {
+        return result.concat(this.doorDefs.map(d => ({
           ...d,
           window_definition_mode: 'Single Window',
-        })),
-      ];
+        })));
+      }
+      return result;
     },
     currentImage: {
       get() { return this.$store.getters['application/currentImage']; },

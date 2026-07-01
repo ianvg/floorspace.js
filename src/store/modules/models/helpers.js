@@ -594,20 +594,31 @@ const helpers = {
       const newID = idFactory.generate();
       idMap[door.id] = newID;
       door.id = newID;
+      door.edge_id = idMap[door.edge_id];
       return door;
     });
     clonedStory.windows = clonedStory.windows.map((window) => {
       const newID = idFactory.generate();
       idMap[window.id] = newID;
       window.id = newID;
+      window.edge_id = idMap[window.edge_id];
       return window;
     });
     clonedStory.spaces = clonedStory.spaces.map((space) => {
       const newID = idFactory.generate();
       idMap[space.id] = newID;
       space.id = newID;
+      space.handle = null;
       space.name = '';
       space.face_id = idMap[space.face_id];
+      space.daylighting_controls = (space.daylighting_controls || []).map((daylightingControl) => {
+        const newControlID = idFactory.generate();
+        idMap[daylightingControl.id] = newControlID;
+        daylightingControl.id = newControlID;
+        daylightingControl.name = '';
+        daylightingControl.vertex_id = idMap[daylightingControl.vertex_id];
+        return daylightingControl;
+      });
       return space;
     });
     clonedStory.shading = clonedStory.shading.map((shade) => {

@@ -50,7 +50,7 @@ export default function importLibrary(context, payload) {
     'importLibrary',
     _.fromPairs([
       'building_units', 'thermal_zones', 'space_types', 'construction_sets',
-      'window_definitions', 'daylighting_control_definitions', 'pitched_roofs',
+      'window_definitions', 'daylighting_control_definitions', 'door_definitions', 'pitched_roofs',
     ].map(k => (
       [k, context.state.models.library[k].concat(localUnitsPayload[k] || [])]
     ))),
