@@ -106,7 +106,19 @@
     "webpack-merge": "^0.14.1"
   },
   "engines": {
-    "node": ">= 14.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24 <25",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11 <12",
+      "onFail": "error"
+    }
   }
 }

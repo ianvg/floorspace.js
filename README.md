@@ -10,8 +10,13 @@ Read [the docs](https://natlabrockies.github.io/floorspace.js/docs) then try out
 ## Build Setup
 
 ``` bash
+# install and select the Node.js 24 release line with a version manager
+# (for example, fnm reads the repository's .node-version file)
+fnm install
+fnm use
+
 # install dependencies
-npm install
+npm ci
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -36,7 +41,9 @@ npm run e2e
 npm test
 ```
 
+Development requires Node.js 24.x and npm 11.x. npm validates those versions
+before installs and scripts, and CI reads the same `.node-version` file.
+
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 [Tests](https://travis-ci.org/NREL/floorspace.js) are run on each pull request. Current status: [![Build Status](https://travis-ci.org/NREL/floorspace.js.svg?branch=develop)](https://travis-ci.org/NREL/floorspace.js)
-
