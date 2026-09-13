@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import factory from './../factory';
-import geometryHelpers, { distanceBetweenPoints } from './../helpers';
+import geometryHelpers from './../helpers';
 import createFaceFromPoints, { eraseSelection, newGeometriesOfOverlappedFaces, validateFaceGeometry } from './createFaceFromPoints';
+import matchFaceGeometryToExistingGeometry from './matchFaceGeometryToExistingGeometry';
 import { withPreservedComponents } from './componentPreservationSociety';
 
 export function getOrCreateVertex(geometry, coords) {
@@ -140,34 +141,10 @@ export default {
     // it's possible for duplicate vertices to sneak in.
     const spacing = context.rootState.project.grid.spacing;
 
-    const replacementVertIds = _.chain(vertices)
-      .map((vert) => {
-        const gVert = _.find(geom.vertices, v => distanceBetweenPoints(v, vert) < (spacing / 20));
-        if (!gVert) return null; // this vertex doesn't match any existing ones
-        if (vert.id === gVert.id) return null; // this vertex already exists
-        return [vert.id, gVert.id]; // this vertex *would* be a dup, so use the existing one
-      })
-      .compact()
-      .fromPairs()
-      .value();
-
-    const updatedVertices = vertices.map(v => ({
-      ...v,
-      id: replacementVertIds[v.id] || v.id,
-    }));
-    const updatedEdges = edges.map(e => ({
-      ...e,
-      v1: replacementVertIds[e.v1] || e.v1,
-      v2: replacementVertIds[e.v2] || e.v2,
-    }));
-
-    updatedEdges.forEach((edge) => {
-      const gEdge = _.find(geom.edges, { v1: edge.v1, v2: edge.v2 }) || _.find(geom.edges, { v1: edge.v2, v2: edge.v1 });
-      if (!gEdge) return; // this edge doesn't match any existing ones
-      if (edge.id === gEdge.id) return; // this edge already exists
-      edge.id = gEdge.id;
-      edge.reverse = (gEdge.v1 !== edge.v1);
-    });
+    const {
+      vertices: updatedVertices,
+      edges: updatedEdges,
+    } = matchFaceGeometryToExistingGeometry({ vertices, edges }, geom, spacing);
     context.commit('replaceFacePoints', {
       geometry_id,
       vertices: updatedVertices,
