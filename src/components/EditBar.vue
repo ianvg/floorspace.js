@@ -29,7 +29,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 .edit-bar {
   display: flex;
   flex-direction: row;

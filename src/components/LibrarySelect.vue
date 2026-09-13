@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 
 .library-select {
   padding: 0 0 !important;

@@ -503,7 +503,7 @@ export default {
 };
 
 </script>
-<style lang="scss" scoped>@import "./../../scss/config";
+<style lang="scss" scoped>@use "./../../scss/config" as *;
 // styles for dynamically created d3 elements go into src/scss/partials/d3.scss
 #grid {
   user-select: none;

@@ -1,4 +1,4 @@
-@import '../config.scss';
+@use '../config' as *;
 
 .overlay {
     background-color: $gray-darkest;

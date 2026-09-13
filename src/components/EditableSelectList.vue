@@ -111,7 +111,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 .controls {
   display: flex;
   justify-content: space-between;

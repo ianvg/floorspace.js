@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../../scss/config";
+@use "./../../scss/config" as *;
 .content {
     margin: 1rem;
     text-align: center;

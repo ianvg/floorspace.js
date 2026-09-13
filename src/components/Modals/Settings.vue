@@ -92,7 +92,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./../../scss/config";
+@use "./../../scss/config" as *;
 .settings-modal .modal {
   width: 260px;
 }

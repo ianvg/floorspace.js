@@ -108,7 +108,7 @@ export default {
 
 <style src="./scss/main.scss" lang="scss"></style>
 <style lang="scss" scoped>
-@import "./scss/config";
+@use "./scss/config" as *;
 .tool_rectangle, .tool_polygon, .tool_eraser {
   #grid {
     cursor: crosshair;

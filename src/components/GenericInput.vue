@@ -137,7 +137,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 .numeric {
   text-align: right;
 }

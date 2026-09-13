@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../../scss/config";
+@use "./../../scss/config" as *;
 svg#north_axis {
   height: 2.25rem;
   position: absolute;

@@ -1,4 +1,4 @@
-@import '../config.scss';
+@use '../config' as *;
 
 .tabs {
     border-bottom: 1px solid $gray-darkest;

@@ -176,7 +176,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./../scss/config";
+@use "./../scss/config" as *;
 
 .editable-table {
   background-color: #3b4348;

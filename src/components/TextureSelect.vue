@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 svg path {
   fill: $gray-medium;
   stroke: $gray-medium;

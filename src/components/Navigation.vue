@@ -125,7 +125,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../scss/config";
+@use "./../scss/config" as *;
 #navigation {
   background-color: $gray-medium-dark;
   border-right: 1px solid $gray-darkest;
