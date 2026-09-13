@@ -1,0 +1,10 @@
+{
+  "name": "node-sass",
+  "version": "4.99.0",
+  "private": true,
+  "description": "Compatibility bridge from legacy sass-loader to Dart Sass",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "1.77.8"
+  }
+}
