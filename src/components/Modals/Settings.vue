@@ -108,15 +108,16 @@ export default {
   }
 
   .ground-props-drawer {
-    .title {
-      text-align: left;
-    }
     border: grey 1px solid;
     border-radius: 5px;
     padding: 4px;
     padding-left: 10px;
     width: 210px;
     margin-left: -12px;
+
+    .title {
+      text-align: left;
+    }
   }
 
 }

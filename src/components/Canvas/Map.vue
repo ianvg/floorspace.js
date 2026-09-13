@@ -298,12 +298,12 @@ export default {
     }
 
     input {
-      &:focus {
-          outline: none;
-      }
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
       font-size: medium;
+      &:focus {
+          outline: none;
+      }
     }
 }
 

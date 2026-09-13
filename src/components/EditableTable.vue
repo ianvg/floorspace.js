@@ -179,6 +179,8 @@ export default {
 @import "./../scss/config";
 
 .editable-table {
+  background-color: #3b4348;
+
   .scroller {
     height: calc(50vh - 151px);
     margin-top: 46px;
@@ -303,6 +305,9 @@ export default {
   .destroy,
   .duplicate {
     width: 35px;
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+    text-align: center;
     > [type="radio"] {
       width: 25px;
     }
@@ -310,9 +315,6 @@ export default {
       margin-top: 12px;
       margin-left: -6px;
     }
-    margin: 0 auto;
-    padding: 0 10px 0 10px;
-    text-align: center;
   }
 
   .duplicate svg {
@@ -320,6 +322,5 @@ export default {
     width: 20px;
   }
 
-  background-color: #3b4348;
 }
 </style>

@@ -467,10 +467,10 @@ svg.icon, svg.button {
         }
       }
       #undo-redo {
+        float: right;
         > div {
           display: inline-block;
         }
-        float: right;
       }
       input {
         display: none;
@@ -487,14 +487,15 @@ svg.icon, svg.button {
   }
   #bottom {
     user-select: none;
+    background-color: $gray-medium-light;
+    display: flex;
+    height: 2.5rem;
+
     .render-by {
       margin-left: auto;
       margin-top: auto;
       margin-bottom: auto;
     }
-    background-color: $gray-medium-light;
-    display: flex;
-    height: 2.5rem;
 
     .components-list {
       margin-right: auto;
